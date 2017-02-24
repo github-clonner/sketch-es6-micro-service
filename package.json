@@ -1,7 +1,7 @@
 {
-  "name": "recursive-js",
-  "version": "1.0.0",
-  "description": "Recursive JavaScript with ES6, destructuring and rest/spread",
+  "name": "sketch-es6-basic",
+  "version": "0.1.0",
+  "description": "A well done start module template for es6, npm scripts, mocha test and babel compile.",
   "main": "./dist/index.js",
   "scripts": {
     "start": "npm run dev",
@@ -13,7 +13,12 @@
     "test": "mocha --compilers js:babel-core/register --require babel-polyfill ./src/**/*.test.js",
     "test:single": "mocha --compilers js:babel-core/register"
   },
-  "author": "Hugo Di Francesco",
+  "repository": {
+    "type": "git",
+    "url": "git@git.36node.com:contracts/baaf-service.git"
+  },
+  "author": "zzswang <zzswang@gmail.com>",
+  "license": "MIT",
   "babel": {
     "presets": [
       "es2015",
@@ -31,5 +36,16 @@
   },
   "files": [
     "dist"
+  ],
+  "bugs": {
+    "url": "https://github.com/zzswang/sketch-es6-basic/issues"
+  },
+  "homepage": "https://github.com/zzswang/sketch-es6-basic",
+  "keywords": [
+    "node",
+    "module",
+    "es6",
+    "mocha",
+    "babel"
   ]
 }
