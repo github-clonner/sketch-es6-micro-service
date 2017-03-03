@@ -8,7 +8,7 @@
     "compile": "babel ./src -d ./dist --ignore test.js",
     "dev": "npm test -- -w",
     "prepublish": "npm run clean && npm run compile",
-    "release": "standard-version",
+    "release": "standard-version && git push --follow-tags origin master",
     "start": "npm run dev",
     "test": "eslint src && mocha --compilers js:babel-core/register --require babel-polyfill ./src/**/*.test.js",
     "test:single": "mocha --compilers js:babel-core/register"
