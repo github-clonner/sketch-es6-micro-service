@@ -1,6 +1,6 @@
 {
   "name": "sketch-es6-basic",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "A well done start module template for es6, npm scripts, mocha test and babel compile.",
   "main": "./dist/index.js",
   "scripts": {
@@ -53,8 +53,7 @@
     "mocha": "3.2.0",
     "standard-version": "4.0.0"
   },
-  "dependencies": {
-  },
+  "dependencies": {},
   "optionalDependencies": {
     "fsevents": "1.0.17"
   }
