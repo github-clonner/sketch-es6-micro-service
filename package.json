@@ -1,15 +1,15 @@
 {
-  "name": "sketch-es6-basic",
-  "version": "0.1.0",
-  "description": "A well done start module template for es6, npm scripts, mocha test and babel compile.",
+  "name": "sketch-es6-micro-service",
+  "version": "0.0.1",
+  "description": "A boilerplate for micro service written with nodejs, in es6.",
   "main": "./dist/index.js",
   "scripts": {
     "clean": "rm -rf dist",
     "compile": "babel ./src -d ./dist --ignore test.js",
-    "dev": "npm test -- -w",
+    "doc": "apidoc -i src/ -o docs/www/",
     "prepublish": "npm run clean && npm run compile",
     "release": "standard-version && git push --follow-tags origin master",
-    "start": "npm run dev",
+    "start": "nodemon src/index.js --watch src --exec 'npm test && babel-node'",
     "test": "eslint src && mocha --compilers js:babel-core/register --require babel-polyfill ./src/**/*.test.js",
     "test:single": "mocha --compilers js:babel-core/register"
   },
@@ -43,6 +43,7 @@
     "extends": "36node"
   },
   "devDependencies": {
+    "apidoc": "0.17.5",
     "babel-cli": "6.23.0",
     "babel-core": "6.23.1",
     "babel-polyfill": "6.23.0",
@@ -51,9 +52,22 @@
     "chai": "3.5.0",
     "eslint-config-36node": "0.2.1",
     "mocha": "3.2.0",
+    "nodemon": "1.11.0",
     "standard-version": "4.0.0"
   },
-  "dependencies": {},
+  "dependencies": {
+    "body-parser": "1.17.0",
+    "config": "1.25.1",
+    "cors": "2.8.1",
+    "dotenv": "4.0.0",
+    "express": "4.15.0",
+    "express-jwt": "5.1.0",
+    "helmet": "3.4.1",
+    "http-status": "1.0.1",
+    "jsonwebtoken": "7.3.0",
+    "method-override": "2.3.7",
+    "morgan": "1.8.1"
+  },
   "optionalDependencies": {
     "fsevents": "1.0.17"
   }

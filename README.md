@@ -67,6 +67,26 @@ npm compile
 ```
 
 
+## Configuration
+
+You do not need to change src/config.js file, since it is under source control, all the values in this file should be the default ones.
+The config could be tuned with export Envrionment Variable or create a .env file in the root as following:
+
+```
+APP_PORT=8080
+DB_CONNECTION=mongodb://localhost/myapp
+DB_PASS=s1mpl3
+```
+
+*[More document for dotenv](https://github.com/motdotla/dotenv)*
+
+
+## Test with Postman
+
+1. import collection: postman.collection
+2. import environment: postman.enrironment
+3. test with this collection and envrionment
+
 
 ## Directory Layout
 

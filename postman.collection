@@ -1,0 +1,158 @@
+{
+	"variables": [],
+	"info": {
+		"name": "sketch-es6-micro-service",
+		"_postman_id": "50a500e9-8af6-0891-fa1a-fdffef305437",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "create user",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"tests[\"User name\"] = jsonData.name === \"test user\";",
+							"tests[\"User avatar\"] = jsonData.avatar === \"http://static.36node.com/default_avatar.png\";"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "{{baseUrl}}/users",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{token}}",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"test user\",\n\t\"avatar\": \"http://static.36node.com/default_avatar.png\"\n}"
+				},
+				"description": "create a user with name and avatar"
+			},
+			"response": []
+		},
+		{
+			"name": "list all users",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;",
+							"",
+							"",
+							"var jsonData = JSON.parse(responseBody);",
+							"tests[\"Response data is an array\"] = Array.isArray(jsonData);"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "{{baseUrl}}/users",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{token}}",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": "list all users"
+			},
+			"response": []
+		},
+		{
+			"name": "update user by id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;",
+							"",
+							"var jsonData = JSON.parse(responseBody);",
+							"tests[\"Change user name correctly\"] = jsonData.name === \"another name\";"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "{{baseUrl}}/users/0",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{token}}",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"another name\",\n\t\"avatar\": \"http://static.36node.com/default_avatar.png\"\n}"
+				},
+				"description": "update user by id"
+			},
+			"response": []
+		},
+		{
+			"name": "delete user by id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "{{baseUrl}}/users/1",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{token}}",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": "delete user by id"
+			},
+			"response": []
+		}
+	]
+}

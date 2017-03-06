@@ -1,0 +1,22 @@
+{
+  "id": "9630c665-06b7-2337-2d7b-368a37cfa3f3",
+  "name": "localhost",
+  "values": [
+    {
+      "enabled": true,
+      "key": "baseUrl",
+      "value": "http://localhost:9527",
+      "type": "text"
+    },
+    {
+      "enabled": true,
+      "key": "token",
+      "value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJlcnJjb2RlIjowLCJlcnJtc2ciOiJvayIsInVzZXJpZCI6IjExMTExMTEiLCJuYW1lIjoi546L5L-K5Y2OIiwiZGVwYXJ0bWVudCI6WzFdLCJwb3NpdGlvbiI6IuS8geS4muWPt-aQreW7uiIsIm1vYmlsZSI6IjE4NjAwMjA2OTA0IiwiZ2VuZGVyIjoiMSIsImVtYWlsIjoienpzd2FuZ0BnbWFpbC5jb20iLCJ3ZWl4aW5pZCI6Inp6c3dhbmciLCJhdmF0YXIiOiJodHRwOi8vc2hwLnFwaWMuY24vYml6bXAvRHdIOENTUHJENWVxQ2VSdmFubmVoeDJQZmN0Z2ZPNzE3VEU1VEJOM25DbjRjT0E3MDNpYkRKUS8iLCJzdGF0dXMiOjEsImV4dGF0dHIiOnsiYXR0cnMiOltdfSwiaWF0IjoxNDg3MjMyMzgxfQ.YV-yCqsqIkaploCGzW8WldwfnmxkfGNsWMhDkK1Zc2YNwbbI9Tx1xdScQFXt6QBz0PsVNyeSLZi7il-nQpKEF3MPZ5Gz4B4Yl7H6bJ_cWKPgD0X0PPxqG8nfLCxT32rMQWcapbPwwU_Ins0x1SPyTW63SJ-AUc5i7S8VqOVRMl0",
+      "type": "text"
+    }
+  ],
+  "timestamp": 1488684830954,
+  "_postman_variable_scope": "environment",
+  "_postman_exported_at": "2017-03-05T04:47:55.904Z",
+  "_postman_exported_using": "Postman/4.10.3"
+}
