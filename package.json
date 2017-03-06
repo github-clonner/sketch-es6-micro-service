@@ -6,9 +6,9 @@
   "scripts": {
     "clean": "rm -rf dist",
     "compile": "babel ./src -d ./dist --ignore test.js",
-    "doc": "apidoc -i src/ -o docs/www/",
-    "prepublish": "npm run clean && npm run compile",
+    "docs": "apidoc -i src/ -o docs/www/",
     "release": "standard-version && git push --follow-tags origin master",
+    "server": "node dist/index.js",
     "start": "nodemon src/index.js --watch src --exec 'npm test && babel-node'",
     "test": "eslint src && mocha --compilers js:babel-core/register --require babel-polyfill ./src/**/*.test.js",
     "test:single": "mocha --compilers js:babel-core/register"
@@ -35,7 +35,7 @@
   "license": "MIT",
   "babel": {
     "presets": [
-      "es2015",
+      "es2015-node6",
       "stage-0"
     ]
   },
@@ -47,7 +47,7 @@
     "babel-cli": "6.23.0",
     "babel-core": "6.23.1",
     "babel-polyfill": "6.23.0",
-    "babel-preset-es2015": "6.22.0",
+    "babel-preset-es2015-node6": "0.4.0",
     "babel-preset-stage-0": "6.22.0",
     "chai": "3.5.0",
     "eslint-config-36node": "0.2.1",

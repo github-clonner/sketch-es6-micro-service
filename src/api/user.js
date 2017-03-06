@@ -10,7 +10,7 @@ const router = new Router();
  */
 function load(req, res, next, id) {
   const user = users.find(u => u.id === id);
-  const err = user ? null : new NotFoundError('Not Found');
+  const err = user ? null : new NotFoundError('Not Found User');
   Object.assign(req, {user});
   return next(err);
 }
@@ -135,7 +135,7 @@ export default router;
  */
 
  /**
-  * @apiDefine Posts
+  * @apiDefine Users
   * @apiSuccess {Post[]}  - List of users
   * @apiSuccess {String}  -.id user's id
   * @apiSuccess {String}  -.name user's name
