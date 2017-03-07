@@ -1,6 +1,6 @@
 {
   "name": "sketch-es6-micro-service",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "A boilerplate for micro service written with nodejs, in es6.",
   "main": "./dist/index.js",
   "scripts": {
