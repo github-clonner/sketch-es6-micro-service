@@ -16,9 +16,9 @@ env:
 after_success:
   - export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_TAG ; fi`
   - if ([ ! -z "$TAG" ] && [ "$TRAVIS_PULL_REQUEST" == "false" ]); then
-      echo "Starting build image with tag ${TAG}"
-      NODE_ENV=production npm run compile && npm run docs
-      docker login -u $DOCKER_USER -p $DOCKER_PASS $DOCKER_REGISTRY
-      docker build -t DOCKER_REPO:$TAG .
-      docker push DOCKER_REPO:$TAG
+      echo "Starting build image with tag ${TAG}";
+      NODE_ENV=production npm run compile && npm run docs;
+      docker login -u $DOCKER_USER -p $DOCKER_PASS $DOCKER_REGISTRY;
+      docker build -t DOCKER_REPO:$TAG .;
+      docker push DOCKER_REPO:$TAG;
     fi
