@@ -8,7 +8,7 @@
     "compile": "babel ./src -d ./dist --ignore test.js",
     "docs": "apidoc -i src/ -o docs/www/",
     "release": "standard-version && git push --follow-tags origin master",
-    "server": "node dist/index.js",
+    "server": "node dist",
     "start": "nodemon src/index.js --watch src --exec 'npm test && babel-node'",
     "test": "eslint src && mocha --compilers js:babel-core/register --require babel-polyfill ./src/**/*.test.js",
     "test:single": "mocha --compilers js:babel-core/register"

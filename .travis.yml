@@ -1,9 +1,26 @@
+
+sudo: required
+
+services:
+  - docker
+
 language: node_js
 node_js:
   - "node"
-deploy:
-  provider: npm
-  email: zzswang@gmail.com
-  api_key: $NPM_TOKEN
-  on:
-    tags: true
+
+env:
+  global:
+    - DOCKER_REGISTRY=registry.cn-beijing.aliyuncs.com
+    - DOCKER_REPO=$DOCKER_REGISTRY/36node/sketch-es6-micro-service
+
+after_success:
+  - export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_TAG ; fi`
+  - echo ${TAG}
+  - if ([ ! -z "$TAG" ]) && [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
+      NODE_ENV=production npm run compile && npm run docs
+      docker login -u $DOCKER_USER -p $DOCKER_PASS $DOCKER_REGISTRY
+      docker build -t DOCKER_REPO:$TAG .
+      docker push DOCKER_REPO:$TAG
+    else
+      echo "Will not build image!"
+    fi

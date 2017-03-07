@@ -99,3 +99,17 @@ Before you start, take a moment to see how the project structure looks like:
 ├── src                         # all source code written for this app
 └── .travis.yml                 # travis-ci
 ```
+
+## Docker
+
+build docker with following command
+```
+docker build -t your/image .
+```
+
+run container:
+```
+docker run -d --name myApp -p 9527:9527 your/image
+```
+
+*note*: in `.travis.yml` example file, we push docker image to aliyun registry, if you want to push to the offical registry, just keep `DOCKER_REGISTRY` empty.
