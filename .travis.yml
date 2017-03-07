@@ -16,7 +16,7 @@ env:
 after_success:
   - export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_TAG ; fi`
   - export DOCK_SHOULD_BUILD=`if [ ! -z "$TAG" ] && [ "$TRAVIS_PULL_REQUEST" == "false" ]; then echo true; else echo false ; fi`
-  - test $DOCK_SHOULD_BUILD=true \
+  - test "$DOCK_SHOULD_BUILD"=true \
     && echo "Starting build image with tag ${TAG}" \
     && NODE_ENV=production npm run compile \
     && npm run docs \
