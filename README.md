@@ -1,6 +1,6 @@
 # sketch-es6-basic
 
-[![Build Status](https://travis-ci.org/zzswang/sketch-es6-basic.svg?branch=master)](https://travis-ci.org/zzswang/sketch-es6-basic)
+[![Build Status](https://travis-ci.org/zzswang/sketch-es6-micro-service.svg?branch=master)](https://travis-ci.org/zzswang/sketch-es6-micro-service)
 
 A simple boilerplate for es6 project, you can start your npm module from this.
 
