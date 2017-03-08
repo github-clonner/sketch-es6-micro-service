@@ -24,7 +24,7 @@ rm -rf .git
 2. Keep the ability of updating from this sketch repo.
 ```
 git clone -o sketch -b master --single-branch \
-      https://github.com/zzswang/sketch-es6-basic.git MyApp
+      https://github.com/zzswang/sketch-es6-micro-service.git MyApp
 cd MyApp
 npm install
 // connect to your own repository
