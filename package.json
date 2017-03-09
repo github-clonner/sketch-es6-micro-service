@@ -15,16 +15,16 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:zzswang/sketch-es6-basic.git"
+    "url": "git@github.com:zzswang/sketch-es6-micro-service.git"
   },
   "author": "zzswang <zzswang@gmail.com>",
   "files": [
     "dist"
   ],
   "bugs": {
-    "url": "https://github.com/zzswang/sketch-es6-basic/issues"
+    "url": "https://github.com/zzswang/sketch-es6-micro-service/issues"
   },
-  "homepage": "https://github.com/zzswang/sketch-es6-basic",
+  "homepage": "https://github.com/zzswang/sketch-es6-micro-service",
   "keywords": [
     "node",
     "module",

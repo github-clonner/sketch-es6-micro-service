@@ -1,4 +1,4 @@
-# sketch-es6-basic
+# sketch-es6-micro-service
 
 [![Build Status](https://travis-ci.org/zzswang/sketch-es6-micro-service.svg?branch=master)](https://travis-ci.org/zzswang/sketch-es6-micro-service)
 
@@ -17,7 +17,7 @@ Two ways to get start.
 
 1. The simplest way, just kick start.
 ```
-git clone git@github.com:zzswang/sketch-es6-basic.git MyApp
+git clone git@github.com:zzswang/sketch-es6-micro-service.git MyApp
 cd MyApp
 rm -rf .git
 ```
