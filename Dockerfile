@@ -15,7 +15,7 @@ COPY docs ${APP_DIR}/docs
 COPY dist ${APP_DIR}/dist
 
 EXPOSE 9527
-VOLUME ["${APP_DIR}"]
+VOLUME ["${APP_DIR}", "${APP_DIR}/ssl"]
 
 # Start
 CMD NODE_ENV=production npm run server
