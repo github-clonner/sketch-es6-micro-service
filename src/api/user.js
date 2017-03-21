@@ -1,6 +1,5 @@
 import {Router} from 'express';
-import users from '../models/user';
-import {NotFoundError} from '../lib/customError';
+import User from '../models/user';
 
 
 const router = new Router();
@@ -9,10 +8,10 @@ const router = new Router();
  * Load post and append to req.
  */
 function load(req, res, next, id) {
-  const user = users.find(u => u.id === id);
-  const err = user ? null : new NotFoundError('Not Found User');
-  Object.assign(req, {user});
-  return next(err);
+  User.get(id, req.query.populate).then((user) => {
+    Object.assign(req, {user});
+    return next();
+  }).catch(e => next(e));
 }
 
 /**
@@ -38,8 +37,8 @@ function load(req, res, next, id) {
  *  }
  *
  */
-function get({user}, res) {
-  return res.json(user);
+function get(req, res) {
+  return res.json(req.user);
 }
 
 /**
@@ -55,10 +54,10 @@ function get({user}, res) {
  *
  * @apiUse User
  */
-function create({body}, res) {
-  const user = Object.assign({id: users.length.toString(36)}, body);
-  users.push(user);
-  res.json(user);
+function create({body}, res, next) {
+  User.create(body)
+   .then(user => res.json(user))
+   .catch(e => next(e));
 }
 
 /**
@@ -75,9 +74,14 @@ function create({body}, res) {
  *
  * @apiUse User
  */
-function update({user, body}, res) {
-  Object.assign(user, body);
-  res.json(user);
+function update(req, res, next) {
+  const {user, body} = req;
+  user.name = body.name || user.name;
+  user.avatar = body.avatar || user.avatar;
+
+  user.save()
+    .then(savedUser => res.json(savedUser))
+    .catch(e => next(e));
 }
 
 /**
@@ -92,8 +96,12 @@ function update({user, body}, res) {
  *
  * @apiUse Users
  */
-function list({offset = 0, limit = 100}, res) {
-  res.json(users.slice(offset, offset + limit));
+function list(req, res, next) {
+  const {limit = 100, offset = 0, conditions, populate} = req.query;
+  User
+   .list({limit, offset, conditions, populate})
+   .then(users => res.json(users))
+   .catch(e => next(e));
 }
 
 /**
@@ -109,9 +117,10 @@ function list({offset = 0, limit = 100}, res) {
  *
  * @apiUse User
  */
-function remove({user}, res) {
-  users.splice(users.indexOf(user), 1);
-  res.json(user);
+function remove(req, res, next) {
+  req.user.remove()
+    .then(user => res.json(user))
+    .catch(e => next(e));
 }
 
 // routers

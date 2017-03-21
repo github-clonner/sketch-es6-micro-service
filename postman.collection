@@ -23,7 +23,7 @@
 				}
 			],
 			"request": {
-				"url": "{{baseUrl}}/users",
+				"url": "{{baseUrl}}/app/users",
 				"method": "POST",
 				"header": [
 					{
@@ -63,7 +63,7 @@
 				}
 			],
 			"request": {
-				"url": "{{baseUrl}}/users",
+				"url": "{{baseUrl}}/app/users",
 				"method": "GET",
 				"header": [
 					{
@@ -99,7 +99,7 @@
 				}
 			],
 			"request": {
-				"url": "{{baseUrl}}/users/0",
+				"url": "{{baseUrl}}/app/users/0",
 				"method": "PUT",
 				"header": [
 					{
@@ -135,7 +135,7 @@
 				}
 			],
 			"request": {
-				"url": "{{baseUrl}}/users/1",
+				"url": "{{baseUrl}}/app/users/1",
 				"method": "DELETE",
 				"header": [
 					{

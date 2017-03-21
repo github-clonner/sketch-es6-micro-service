@@ -8,8 +8,9 @@ import http from 'http';
 import methodOverride from 'method-override';
 import logger from 'morgan';
 import path from 'path';
-import {APP_PORT, JWT_PUBLIC_KEY} from './config';
+import {APP_PORT, BASE_URL, JWT_PUBLIC_KEY} from './config';
 import api from './api';
+import db from './db';
 import {
   NotFoundError,
   ExtendableError,
@@ -34,13 +35,13 @@ if(process.env.NODE_ENV === 'development') {
   }));
 }
 
-app.use('/docs', express.static(path.join(__dirname, '../docs/www')));
+app.use(`${BASE_URL}/docs`, express.static(path.join(__dirname, '../docs/www')));
 app.use(bodyParser.json({ limit: '100kb' }));
-app.use(jwtMiddleware);
+app.use(jwtMiddleware);     // TODO: ignore docs
 app.use(methodOverride());
 app.use(helmet()); // secure apps by setting various HTTP headers
 app.use(cors({ exposedHeaders: ['Link'] })); // enable CORS - Cross Origin Resource Sharing
-app.use('/', api());
+app.use(BASE_URL, api());
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
@@ -76,7 +77,10 @@ app.use((err, req, res, next) => {   // eslint-disable-line no-unused-vars
   res.status(err.status).json(err);
 });
 
-app.server.listen(APP_PORT || 9527);
-console.info(`Started on port ${app.server.address().port}`);  // eslint-disable-line no-console
+// connect to db
+db(() => {
+  app.server.listen(APP_PORT);
+  console.log(`Started on port ${app.server.address().port}`);  // eslint-disable-line
+});
 
 export default app;
