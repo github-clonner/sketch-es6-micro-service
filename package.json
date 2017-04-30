@@ -6,7 +6,7 @@
   "scripts": {
     "clean": "rm -rf dist",
     "build": "babel ./src -d ./dist --ignore test.js",
-    "docs": "apidoc -i src/ -o docs/www/",
+    "docs": "apidoc -i src/ -o docs/www/ && apidoc-swagger -i src/ -o docs/www/",
     "release": "standard-version && git push --follow-tags origin master",
     "server": "node dist",
     "start": "nodemon src/index.js --watch src --exec 'npm test && babel-node'",
@@ -44,6 +44,7 @@
   },
   "devDependencies": {
     "apidoc": "0.17.5",
+    "apidoc-swagger": "0.2.2",
     "babel-cli": "6.23.0",
     "babel-core": "6.23.1",
     "babel-polyfill": "6.23.0",

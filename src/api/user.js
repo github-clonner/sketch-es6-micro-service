@@ -15,8 +15,8 @@ function load(req, res, next, id) {
 }
 
 /**
- * @api {GET} /api/users/:id getUser
- * @apiDescription get user by id
+ * @api {get} /users/:id getUser
+ * @apiDescription Get user by id
  * @apiUse Header
  *
  * @apiName Get User
@@ -42,7 +42,7 @@ function get(req, res) {
 }
 
 /**
- * @api {POST} /users Create User
+ * @api {post} /users Create User
  * @apiDescription Create a user
  * @apiUse Header
  *
@@ -61,7 +61,7 @@ function create({body}, res, next) {
 }
 
 /**
- * @api {PUT} /users/:id update user
+ * @api {put} /users/:id update user
  * @apiDescription Update user by id
  * @apiUse Header
  *
@@ -85,7 +85,8 @@ function update(req, res, next) {
 }
 
 /**
- * @api {Get} /users get user list
+ * @api {get} /users get user list
+ * @apiDescription Get user list
  * @apiUse Header
  *
  * @apiName List Users
@@ -105,8 +106,8 @@ function list(req, res, next) {
 }
 
 /**
- * @api {DELETE} /users/:id delete user
- * @apiDescription delete user by id
+ * @api {delete} /users/:id delete user
+ * @apiDescription Delete user by id
  *
  * @apiUse Header
  *

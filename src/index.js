@@ -8,7 +8,7 @@ import http from 'http';
 import methodOverride from 'method-override';
 import logger from 'morgan';
 import path from 'path';
-import {APP_PORT, BASE_URL, JWT_PUBLIC_KEY} from './config';
+import {APP_PORT, ENDPOINT, JWT_PUBLIC_KEY} from './config';
 import api from './api';
 import db from './db';
 import {
@@ -35,13 +35,13 @@ if(process.env.NODE_ENV === 'development') {
   }));
 }
 
-app.use(`${BASE_URL}/docs`, express.static(path.join(__dirname, '../docs/www')));
+app.use(cors({ exposedHeaders: ['Link'] })); // enable CORS - Cross Origin Resource Sharing
+app.use(`${ENDPOINT}/`, express.static(path.join(__dirname, '../docs/www')));
 app.use(bodyParser.json({ limit: '100kb' }));
-app.use(jwtMiddleware);     // TODO: ignore docs
+app.use(jwtMiddleware.unless({path: [/\/docs/]}));
 app.use(methodOverride());
 app.use(helmet()); // secure apps by setting various HTTP headers
-app.use(cors({ exposedHeaders: ['Link'] })); // enable CORS - Cross Origin Resource Sharing
-app.use(BASE_URL, api());
+app.use(ENDPOINT, api());
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
