@@ -51,7 +51,7 @@
     "babel-preset-es2015-node6": "0.4.0",
     "babel-preset-stage-0": "6.22.0",
     "chai": "3.5.0",
-    "eslint-config-36node": "0.2.1",
+    "eslint-config-36node": "0.2.2",
     "mocha": "3.2.0",
     "nodemon": "1.11.0",
     "standard-version": "4.0.0"
