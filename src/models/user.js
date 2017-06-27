@@ -46,7 +46,7 @@ userSchema.statics = {
     return this.findById(id)
       .populate(populate)
       .exec().then((user) => {
-        if(user) {
+        if (user) {
           return user;
         }
         const err = new NotFoundError('User not found');

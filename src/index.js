@@ -27,7 +27,7 @@ const app = express();
 app.server = http.createServer(app);
 
 // log
-if(process.env.NODE_ENV === 'development') {
+if (process.env.NODE_ENV === 'development') {
   app.use(logger('dev'));
 } else {
   app.use(logger('tiny', {
@@ -51,21 +51,21 @@ app.use((req, res, next) => {
 
 // log error and change error format
 app.use((err, req, res, next) => {
-  if(err instanceof ExtendableError) {
+  if (err instanceof ExtendableError) {
     return next(err);
   }
 
   console.error(err);   // eslint-disable-line
-  if(err.name === 'ValidationError') {
+  if (err.name === 'ValidationError') {
     const error = Array.isArray(err.errors) ? err.errors[0] : err;
     return next(new ValidationError(error.message, error.type, error.path, error.value));
   }
 
-  if(err instanceof jwtMiddleware.UnauthorizedError) {
+  if (err instanceof jwtMiddleware.UnauthorizedError) {
     return next(new UnauthorizedError(err.message, err.code));
   }
 
-  if(err.name === 'InvalidCredentialsError') {
+  if (err.name === 'InvalidCredentialsError') {
     return next(new ForbiddenError('invalid credentials'));
   }
 
