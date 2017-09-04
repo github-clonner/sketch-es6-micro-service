@@ -1,10 +1,10 @@
 import mongoose from 'mongoose';
-import {NotFoundError} from '../lib/customError';
+import { NotFoundError } from '../lib/customError';
 
 
 const userSchema = new mongoose.Schema({
-  name: {type: String, required: true},
-  avatar: {type: String, required: true}
+  name: { type: String, required: true },
+  avatar: { type: String, required: true }
 }, {
   timestamps: true,
   toJSON: {

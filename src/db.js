@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-import {DB_CONNECTION} from './config';
+import { DB_CONNECTION } from './config';
 
 
 export default function(callback) {

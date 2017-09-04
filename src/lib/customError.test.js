@@ -1,5 +1,5 @@
-import {expect} from 'chai';
-import {NotFoundError} from './customError';
+import { expect } from 'chai';
+import { NotFoundError } from './customError';
 
 describe('NotFoundError', () => {
   it('should have message and status', () => {
