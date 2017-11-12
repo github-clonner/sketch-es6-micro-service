@@ -43,32 +43,32 @@
     "extends": "36node"
   },
   "devDependencies": {
-    "apidoc": "0.17.5",
+    "apidoc": "0.17.6",
     "apidoc-swagger": "0.2.2",
-    "babel-cli": "6.23.0",
-    "babel-core": "6.23.1",
-    "babel-polyfill": "6.23.0",
+    "babel-cli": "6.26.0",
+    "babel-core": "6.26.0",
+    "babel-polyfill": "6.26.0",
     "babel-preset-es2015-node6": "0.4.0",
-    "babel-preset-stage-0": "6.22.0",
-    "chai": "3.5.0",
+    "babel-preset-stage-0": "6.24.1",
+    "chai": "4.1.2",
     "eslint-config-36node": "0.3.0",
-    "mocha": "3.2.0",
-    "nodemon": "1.11.0",
-    "standard-version": "4.0.0"
+    "mocha": "4.0.1",
+    "nodemon": "1.12.1",
+    "standard-version": "4.2.0"
   },
   "dependencies": {
-    "body-parser": "1.17.0",
-    "config": "1.25.1",
-    "cors": "2.8.1",
+    "body-parser": "1.18.2",
+    "config": "1.28.1",
+    "cors": "2.8.4",
     "dotenv": "4.0.0",
-    "express": "4.15.0",
-    "express-jwt": "5.1.0",
-    "helmet": "3.4.1",
+    "express": "4.16.2",
+    "express-jwt": "5.3.0",
+    "helmet": "3.9.0",
     "http-status": "1.0.1",
-    "jsonwebtoken": "7.3.0",
-    "method-override": "2.3.7",
-    "mongoose": "4.9.1",
-    "morgan": "1.8.1"
+    "jsonwebtoken": "8.1.0",
+    "method-override": "2.3.10",
+    "mongoose": "4.13.1",
+    "morgan": "1.9.0"
   },
   "optionalDependencies": {
     "fsevents": "1.0.17"
