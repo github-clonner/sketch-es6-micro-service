@@ -112,3 +112,5 @@ docker run -d --name myApp -p 9527:9527 your/image
 ```
 
 *note*: in `.travis.yml` example file, we push docker image to aliyun registry, if you want to push to the offical registry, just keep `DOCKER_REGISTRY` empty.
+
+*[More informations](https://www.youtube.com/watch?v=F0HLIe3kNvM)*
